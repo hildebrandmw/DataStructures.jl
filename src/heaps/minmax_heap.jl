@@ -23,7 +23,7 @@ BinaryMinMaxHeap(xs::AbstractVector{T}) where T = BinaryMinMaxHeap{T}(xs)
 #
 ################################################
 
-Base.@propagate_inbounds function _make_binary_minmax_heap(xs)
+function _make_binary_minmax_heap(xs)
     valtree = copy(xs)
     for i in length(xs):-1:1
         @inbounds _minmax_heap_trickle_down!(valtree, i)
